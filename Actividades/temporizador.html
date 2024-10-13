@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temporizador de Halloween</title>
+    <style>
+        body {
+            font-family: 'Creepster', cursive;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: url('https://www.example.com/halloween-background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #ff7518;
+        }
+        .container {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px #000;
+        }
+        #temporizador {
+            font-size: 3em;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px #000;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Temporizador de Halloween</h1>
+        <p id="temporizador">50</p>
+    </div>
+
+    <script>
+        var contador = 50; // Valor inicial del temporizador
+        var intervalo;
+
+        function iniciarTemporizador() {
+            // Usamos setInterval para ejecutar la función cada segundo (1000 ms)
+            intervalo = setInterval(function() {
+                // Reducimos el valor del contador
+                contador--;
+                // Mostramos el valor actualizado en la página
+                document.getElementById("temporizador").textContent = contador;
+
+                // Si el contador llega a 0, detenemos el temporizador
+                if (contador === 0) {
+                    clearInterval(intervalo); // Detenemos setInterval
+                    alert("¡Tiempo finalizado!"); // Alerta al finalizar el tiempo
+                }
+            }, 1000); // Ejecuta cada 1000 milisegundos (1 segundo)
+        }
+
+        // Inicia el temporizador cuando se carga la página
+        setTimeout(iniciarTemporizador, 1000); // Retrasa el inicio 1 segundo
+    </script>
+
+</body>
+</html>

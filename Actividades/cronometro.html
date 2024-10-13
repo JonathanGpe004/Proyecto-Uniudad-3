@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronómetro de Halloween</title>
+    <style>
+        body {
+            font-family: 'Creepster', cursive;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+            color: #fff;
+        }
+        .cronometro {
+            text-align: center;
+            background: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 165, 0, 0.5);
+        }
+        .time {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #ff4500;
+        }
+        .buttons button {
+            font-size: 16px;
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #fff;
+        }
+        .start {
+            background-color: #4CAF50;
+        }
+        .pause {
+            background-color: #f0ad4e;
+        }
+        .reset {
+            background-color: #d9534f;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cronometro">
+        <div class="time" id="time">00:00:00</div>
+        <div class="buttons">
+            <button class="start" onclick="startTimer()">Iniciar</button>
+            <button class="pause" onclick="pauseTimer()">Pausar</button>
+            <button class="reset" onclick="resetTimer()">Reiniciar</button>
+        </div>
+    </div>
+
+    <script>
+        let hours = 0, minutes = 0, seconds = 0;
+        let timer;
+        let isRunning = false;
+
+        function updateTime() {
+            seconds++;
+            if (seconds == 60) {
+                seconds = 0;
+                minutes++;
+                if (minutes == 60) {
+                    minutes = 0;
+                    hours++;
+                }
+            }
+            document.getElementById('time').textContent = 
+                (hours < 10 ? '0' + hours : hours) + ':' + 
+                (minutes < 10 ? '0' + minutes : minutes) + ':' + 
+                (seconds < 10 ? '0' + seconds : seconds);
+        }
+
+        function startTimer() {
+            if (!isRunning) {
+                timer = setInterval(updateTime, 1000);
+                isRunning = true;
+            }
+        }
+
+        function pauseTimer() {
+            clearInterval(timer);
+            isRunning = false;
+        }
+
+        function resetTimer() {
+            clearInterval(timer);
+            isRunning = false;
+            hours = 0;
+            minutes = 0;
+            seconds = 0;
+            document.getElementById('time').textContent = '00:00:00';
+        }
+    </script>
+</body>
+</html>

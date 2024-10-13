@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Formulario de Registro</title> 
+    <!-- Estilos CSS -->
+    <style>
+        body {
+            font-family: 'Creepster', cursive;
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('https://www.example.com/halloween-background.jpg');
+            background-size: cover;
+        }
+
+        h2 {
+            color: #ff7518;
+            text-shadow: 2px 2px 4px #000;
+        }
+
+        form {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(255, 117, 24, 0.5);
+            width: 300px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #ff7518;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ff7518;
+            border-radius: 4px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #ff7518;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            text-shadow: 1px 1px 2px #000;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #e65c00;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Título principal de la página -->
+    <h2>Formulario de Registro</h2>
+    <form id="registroForm" onsubmit="return validarFormulario()"> <!-- El evento 'onsubmit' ejecuta la validación antes de enviar el formulario -->
+        <!-- Etiqueta y campo de entrada para el nombre -->
+        <label for="nombre">Nombre:</label> <!-- 'for' vincula la etiqueta con el input de nombre -->
+        <input type="text" id="nombre" name="nombre"> <!-- Campo de entrada para el nombre del usuario -->
+        
+        <!-- Elemento para mostrar el mensaje de error -->
+        <span id="noname" class="error"></span> <!-- Mensaje de error se mostrará aquí si el campo de nombre está vacío -->
+        <br><br> <!-- Salto de línea para crear un espacio entre los elementos del formulario -->
+
+        <!-- Botón de envío del formulario -->
+        <input type="submit" value="Registrar"> <!-- Botón para enviar el formulario -->
+    </form>
+
+    <!-- Script JavaScript para la validación del formulario -->
+    <script>
+        // Función que valida el formulario cuando se intenta enviar
+        function validarFormulario() {
+            var nombre = document.getElementById("nombre").value; // Obtiene el valor del campo 'nombre'
+            var noname = document.getElementById("noname"); // Obtiene el elemento donde se mostrará el mensaje de error
+
+            // Verifica si el campo 'nombre' está vacío o contiene solo espacios en blanco
+            if (nombre.trim() === "") {
+                noname.textContent = "El campo de nombre no puede estar vacío."; // Establece el mensaje de error
+                return false; // Evita el envío del formulario
+            } else {
+                noname.textContent = ""; // Limpia el mensaje de error si el nombre es válido
+                return true; // Permite el envío del formulario
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Imágenes de Halloween</title>
+    <style>
+        body {
+            font-family: 'Creepster', cursive;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+        }
+        h1 {
+            color: #ff7518;
+            text-shadow: 2px 2px 4px #000;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .gallery img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s;
+        }
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #ff7518;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #e65c00;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Galería de Imágenes de Halloween</h1>
+    <div class="gallery" id="gallery"></div>
+    <button onclick="loadImages()">Cargar Imágenes</button>
+
+    <script>
+        const accessKey = 'PZQjozk6sMT1MRzlW901nw6Us6Cic2E1-o9tPPImI-U';
+
+        async function loadImages() {
+            const response = await fetch(`https://api.unsplash.com/photos/random?count=10&client_id=${accessKey}`);
+            const data = await response.json();
+            const gallery = document.getElementById('gallery');
+            gallery.innerHTML = '';
+            data.forEach(image => {
+                const imgElement = document.createElement('img');
+                imgElement.src = image.urls.small;
+                gallery.appendChild(imgElement);
+            });
+        }
+    </script>
+</body>
+</html>

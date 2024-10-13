@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar Imagen</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #FFA500;
+            font-family: 'Creepster', cursive;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 5px solid #FFA500;
+            box-shadow: 0 0 20px #FFA500;
+        }
+        button {
+            background-color: #FFA500;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #FF4500;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Cambiar Imagen con JavaScript</h1>
+    <img id="imagen" src="imagenn.jpg" alt="Imagen inicial">
+    <br>
+    <button onclick="cambiarImagen()">Cambiar Imagen</button>
+
+    <script>
+        function cambiarImagen() {
+            var img = document.getElementById('imagen');
+            if (img.src.includes('imagenn.jpg')) {
+                img.src = 'imagenn2.jpg';
+            } else {
+                img.src = 'imagenn.jpg';
+            }
+        }
+    </script>
+</body>
+</html>

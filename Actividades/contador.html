@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Halloween</title>
+    <style>
+        body {
+            font-family: 'Creepster', cursive;
+            background-color: #000;
+            color: #FFA500;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .counter {
+            font-size: 3em;
+            margin: 20px;
+            text-shadow: 2px 2px 4px #FF0000;
+        }
+        .buttons {
+            display: flex;
+            gap: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #FFA500;
+            border: none;
+            color: #000;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #FF4500;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="counter" id="counter">0</div>
+    <div class="buttons">
+        <button onclick="subirparriba()">Subir</button>
+        <button onclick="bajapabajo()">Bajar</button>
+    </div>
+
+    <script>
+        let count = 0;
+
+        function subirparriba() {
+            count++;
+            document.getElementById('counter').innerText = count;
+        }
+
+        function bajapabajo() {
+            count--;
+            document.getElementById('counter').innerText = count;
+        }
+    </script>
+</body>
+</html>

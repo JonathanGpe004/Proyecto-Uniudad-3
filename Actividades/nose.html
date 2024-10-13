@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function checkAge() {
+             // Solicita al usuario ingresar su edad mediante un cuadro de diálogo 'prompt'
+            var age = prompt("Porfavor ingrese su edad:");
+            // Comprueba si el usuario ingresó un valor (si no presionó 'Cancelar')
+            if (age !== null) {
+                // Si la edad ingresada es mayor o igual a 18, se muestra el mensaje de aprobación.
+                if (age >= 18) {
+                    alert("Felicidades ya puedes hacerte tingolilingo");
+                     // Si la edad es menor de 18, se muestra un mensaje alternativo.
+                } else {
+                    alert("A mirar pocoyo bb");
+                }
+            }
+        }
+          // Ejecuta la función 'checkAge' automáticamente cuando la página web se haya cargado por completo.
+        window.onload = checkAge;
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

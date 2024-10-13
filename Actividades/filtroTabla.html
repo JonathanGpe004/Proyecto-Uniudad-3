@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtro de Tabla en Tiempo Real - Halloween</title>
+    <style>
+        body {
+            font-family: 'Creepster', cursive;
+            background-color: #000;
+            color: #fff;
+            margin: 20px;
+        }
+        h2 {
+            color: #ff7518;
+        }
+        input[type="text"] {
+            margin-bottom: 10px;
+            padding: 8px;
+            width: 100%;
+            box-sizing: border-box;
+            background-color: #333;
+            color: #fff;
+            border: 1px solid #ff7518;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #333;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ff7518;
+            text-align: left;
+        }
+        th {
+            background-color: #ff7518;
+            color: #000;
+        }
+        tr:nth-child(even) {
+            background-color: #444;
+        }
+        tr:nth-child(odd) {
+            background-color: #555;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h2>Filtro de Tabla en Tiempo Real - Halloween</h2>
+    <input type="text" id="searchInput" placeholder="Buscar en la tabla...">
+    <table id="dataTable">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Ciudad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Juan Pérez</td>
+                <td>28</td>
+                <td>Madrid</td>
+            </tr>
+            <tr>
+                <td>María López</td>
+                <td>34</td>
+                <td>Barcelona</td>
+            </tr>
+            <tr>
+                <td>Carlos García</td>
+                <td>22</td>
+                <td>Valencia</td>
+            </tr>
+            <tr>
+                <td>Ana Martínez</td>
+                <td>30</td>
+                <td>Sevilla</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+            var input = this.value.toLowerCase();
+            var rows = document.querySelectorAll('#dataTable tbody tr');
+
+            rows.forEach(function(row) {
+                var cells = row.querySelectorAll('td');
+                var match = false;
+
+                cells.forEach(function(cell) {
+                    if (cell.textContent.toLowerCase().indexOf(input) > -1) {
+                        match = true;
+                    }
+                });
+
+                if (match) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

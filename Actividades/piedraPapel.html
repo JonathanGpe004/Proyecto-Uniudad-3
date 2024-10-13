@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piedra, Papel o Tijeras - Halloween</title>
+    <style>
+        body {
+            font-family: 'Creepster', cursive;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+            color: #fff;
+        }
+        .container {
+            text-align: center;
+            background: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 165, 0, 0.5);
+        }
+        .choices {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .choice {
+            margin: 0 10px;
+            cursor: pointer;
+            padding: 10px 20px;
+            border: 2px solid #ff4500;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .choice:hover {
+            background-color: #ff4500;
+            transform: scale(1.1);
+        }
+        .result {
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Piedra, Papel o Tijeras</h1>
+        <div class="choices">
+            <div class="choice" onclick="playGame('piedra')">Piedra</div>
+            <div class="choice" onclick="playGame('papel')">Papel</div>
+            <div class="choice" onclick="playGame('tijeras')">Tijeras</div>
+        </div>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function playGame(userChoice) {
+            const choices = ['piedra', 'papel', 'tijeras'];
+            const computerChoice = choices[Math.floor(Math.random() * choices.length)];
+            let result = '';
+
+            if (userChoice === computerChoice) {
+                result = 'Empate!';
+            } else if (
+                (userChoice === 'piedra' && computerChoice === 'tijeras') ||
+                (userChoice === 'papel' && computerChoice === 'piedra') ||
+                (userChoice === 'tijeras' && computerChoice === 'papel')
+            ) {
+                result = 'Ganaste!';
+            } else {
+                result = 'Perdiste!';
+            }
+
+            document.getElementById('result').innerText = `Tú elegiste ${userChoice}, la computadora eligió ${computerChoice}. ${result}`;
+        }
+    </script>
+</body>
+</html>

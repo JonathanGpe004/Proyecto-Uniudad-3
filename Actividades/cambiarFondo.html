@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Metadatos de la página -->
+    <meta charset="UTF-8"> <!-- Define la codificación de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura la página para que sea adaptable a pantallas móviles -->
+    
+    <title>Cambiar Color de Fondo</title> <!-- Título de la página que se mostrará en la pestaña del navegador -->
+
+    <!-- Estilos CSS para personalizar el botón -->
+    <style>
+        #colorButton {
+            padding: 10px 20px; /* Define el espacio interno del botón */
+            font-size: 16px; /* Tamaño de la fuente del botón */
+            cursor: pointer; /* Cambia el cursor a una mano cuando el ratón está sobre el botón */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Botón que el usuario verá inicialmente y usará para cambiar el color de fondo -->
+    <button id="colorButton">Cambiar Color de Fondo</button>
+
+    <script>
+        // Definición de un array de colores en formato hexadecimal
+        const colors = ['#FF5733', '#33FF57', '#3357FF', '#F333FF', '#FF33A1'];
+        let currentIndex = 0; // Inicializa el índice del color actual en 0
+
+        // Función que cambia el color de fondo del cuerpo del documento
+        function changeBackgroundColor() {
+            document.body.style.backgroundColor = colors[currentIndex]; // Cambia el color de fondo al color del índice actual
+            currentIndex = (currentIndex + 1) % colors.length; // Actualiza el índice de manera cíclica (cuando llega al último, vuelve al primero)
+            renderButton(); // Llama a la función que renderiza el botón
+        }
+
+        // Función que se encarga de renderizar o recrear el botón cada vez que se llama
+        function renderButton() {
+            const buttonContainer = document.getElementById('buttonContainer'); // Busca el contenedor actual del botón
+            if (buttonContainer) {
+                buttonContainer.remove(); // Si existe, lo elimina para evitar duplicados
+            }
+
+            // Crea un nuevo contenedor para el botón
+            const newButtonContainer = document.createElement('div');
+            newButtonContainer.id = 'buttonContainer'; // Asigna un ID al contenedor
+
+            // Bucle que crea un nuevo botón
+            for (let i = 0; i < 1; i++) {
+                const button = document.createElement('button'); // Crea un nuevo elemento botón
+                button.id = 'colorButton'; // Asigna un ID al botón
+                button.textContent = 'Cambiar Color de Fondo'; // Asigna el texto que se mostrará en el botón
+                button.onclick = changeBackgroundColor; // Define la acción que se ejecutará al hacer clic en el botón
+                newButtonContainer.appendChild(button); // Añade el botón al contenedor
+            }
+
+            document.body.appendChild(newButtonContainer); // Añade el contenedor con el nuevo botón al cuerpo del documento
+        }
+
+        // Define el comportamiento del botón existente (colorButton) al hacer clic
+        document.getElementById('colorButton').onclick = changeBackgroundColor;
+    </script>
+</body>
+</html>

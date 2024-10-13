@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertidor de Unidades</title>
+    <style>
+        body {
+            font-family: 'Creepster', cursive;
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(255, 165, 0, 0.5);
+            text-align: center;
+        }
+        input, select {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #555;
+            border-radius: 4px;
+            background-color: #444;
+            color: #fff;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #ff4500;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ff6347;
+        }
+        h1 {
+            color: #ff4500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Convertidor de Unidades</h1>
+        <input type="number" id="inputValue" placeholder="Ingrese el valor">
+        <label for="inputUnit">Unidad de entrada:</label>
+        <select id="inputUnit">
+            <option value="meters">Metros</option>
+            <option value="kilometers">Kilómetros</option>
+            <option value="miles">Millas</option>
+        </select>
+        <label for="outputUnit">Unidad de salida:</label>
+        <select id="outputUnit">
+            <option value="meters">Metros</option>
+            <option value="kilometers">Kilómetros</option>
+            <option value="miles">Millas</option>
+        </select>
+        <button onclick="convert()">Convertir</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function convert() {
+            const inputValue = parseFloat(document.getElementById('inputValue').value);
+            const inputUnit = document.getElementById('inputUnit').value;
+            const outputUnit = document.getElementById('outputUnit').value;
+
+            let valueInMeters;
+
+            switch (inputUnit) {
+                case 'meters':
+                    valueInMeters = inputValue;
+                    break;
+                case 'kilometers':
+                    valueInMeters = inputValue * 1000;
+                    break;
+                case 'miles':
+                    valueInMeters = inputValue * 1609.34;
+                    break;
+            }
+
+            let outputValue;
+
+            switch (outputUnit) {
+                case 'meters':
+                    outputValue = valueInMeters;
+                    break;
+                case 'kilometers':
+                    outputValue = valueInMeters / 1000;
+                    break;
+                case 'miles':
+                    outputValue = valueInMeters / 1609.34;
+                    break;
+            }
+
+            document.getElementById('result').innerText = `Resultado: ${Math.round(outputValue)} ${outputUnit}`;
+        }
+    </script>
+</body>
+</html>
