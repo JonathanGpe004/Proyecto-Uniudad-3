@@ -1,0 +1,227 @@
+/* Estilos del menú de navegación */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    will-change: transform;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ff6347;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px;
+}
+
+/* Menú hamburguesa en dispositivos móviles */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        left: 0;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
+
+/* Estilos de la galería */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 100px 0;
+    gap: 20px;
+}
+
+.gallery-item {
+    width: 200px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform, box-shadow;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-item img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative; /* Add this line */
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+iframe {
+    width: 100%;
+    height: 500px;
+}
+
+/* Fondo animado */
+/* Fondo con efecto de niebla para Halloween */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Creepster', cursive, sans-serif;
+    background: linear-gradient(to bottom, #000000, #1a1a1a 80%);
+    overflow-x: hidden;
+    color: #f8f8f8;
+}
+
+/* Efecto de niebla optimizado */
+::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://i.imgur.com/U2H0OHZ.png') repeat;
+    opacity: 0.2; /* Reduce la opacidad para un efecto más ligero */
+    animation: fog 15s linear infinite; /* Reduce la duración de la animación */
+    z-index: -1;
+}
+
+@keyframes fog {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-500px); /* Menos desplazamiento para mayor fluidez */
+    }
+}
+
+/* Estilos del menú de navegación con colores de Halloween */
+.navbar {
+    background-color: #222;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.nav-links a {
+    color: #ff7518;
+}
+
+.nav-links a:hover {
+    color: #f39c12;
+}
+
+.hamburger span {
+    background-color: #ff7518;
+}
+
+/* Estilos de la galería de proyectos */
+.gallery {
+    padding: 150px 0 50px;
+}
+
+.gallery-item {
+    background-color: #1a1a1a;
+    padding: 15px;
+    box-shadow: 0px 5px 15px rgba(255, 165, 0, 0.5);
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 20px rgba(255, 165, 0, 0.7);
+}
+
+.gallery-item p {
+    color: #ff7518;
+}
+
+/* Modal */
+.modal {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    background-color: #333;
+}
+
+.close {
+    color: #ff7518;
+}
+
+/* Estilos del botón hamburguesa en dispositivos móviles */
+@media (max-width: 768px) {
+    .nav-links {
+        background-color: #222;
+    }
+
+    .hamburger span {
+        background-color: #ff7518;
+    }
+}

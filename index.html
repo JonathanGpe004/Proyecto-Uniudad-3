@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Proyectos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Menú de navegación -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">Actividades Unidad 3</div>
+            <ul class="nav-links">
+                <li><a href="#home" onclick="showPrompt('Inicio')">Inicio</a></li>
+                <li><a href="#services" onclick="showPrompt('Servicios')">Servicios</a></li>
+                <li><a href="#about" onclick="showPrompt('Sobre mí')">Sobre mí</a></li>
+                <li><a href="#contact" onclick="showPrompt('Contacto')">Contacto</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <script>
+        function showPrompt(section) {
+            let message = '';
+            switch(section) {
+                case 'Inicio':
+                    message = 'Bienvenido a la página de Inicio Felizzz Halloween BB!!!!';
+                    break;
+                case 'Servicios':
+                    message = 'Estos son nuestros Servicios (no hay)';
+                    break;
+                case 'Sobre mí':
+                    message = 'Conoce más Sobre mí y llamame!!!!';
+                    break;
+                case 'Contacto':
+                    message = 'Ponte en Contacto con nosotros';
+                    break;
+                default:
+                    message = 'Sección no reconocida';
+            }
+            alert(message);
+        }
+    </script>
+
+    <!-- Contenido principal -->
+    <main>
+        <section class="gallery">
+            <!-- Galería de proyectos -->
+            <div class="gallery-item" data-project="Actividades/mostrarMensaje.html">
+                <img src="images/mensaje.png" alt="Mostrar un Mensaje en la Pagina">
+                <p>Mostrar un Mensaje en la Pagina</p>
+            </div>
+            <div class="gallery-item" data-project="Actividades/cambiarFondo.html">
+                <img src="images/cambioColor.png" alt="Cambiar el color del Fondo">
+                <p>Cambiar el color del Fondo</p>
+            </div>
+            <div class="gallery-item" data-project="Actividades/filtroTabla.html">
+                <img src="images/filtroDatos.png.jpeg" alt="Filtro de Busqueda en una Tabla">
+                <p>Filtro de Busqueda en una Tabla</p>
+            </div>
+            <div class="gallery-item" data-project="Actividades/formSuma.html">
+                <img src="images/suma.png" alt="Suma de Dos Números">
+                <p>Suma de Dos Números</p>
+            </div>
+            <div class="gallery-item" data-project="Actividades/contador.html">
+                <img src="images/contador.png" alt="Contador">
+                <p>Contador</p>
+            </div>
+            <div class="gallery-item" data-project="Actividades/cambiarImagen.html">
+                <img src="images/cambioImagenes.png" alt="Cambio de Imagen">
+                <p>Cambio de Imagen</p>
+            </div>
+            <div class="gallery-item" data-project="Actividades/temporizador.html">
+                <img src="images/temporizador.png" alt="Temporizador">
+                <p>Temporizador</p>
+            </div>
+            <div class="gallery-item" data-project="Actividades/listaTareas.html">
+                <img src="images/listado.png" alt="Listado de Tareas">
+                <p>Listado de Tareas</p>
+            </div>
+            <div class="gallery-item" data-project="Actividades/piedraPapel.html">
+                <img src="images/piedra.png" alt="Piedra, Papel o Tijeras">
+                <p>Piedra, Papel o Tijeras</p>
+            </div>
+            <div class="gallery-item" data-project="Actividades/filtroTabla.html">
+                <img src="images/filtroTabla.png" alt="Filtro de Tabla en Tiempo Real">
+                <p>Filtro de Tabla en Tiempo Real</p>
+            </div>
+            <div class="gallery-item" data-project="Actividades/galeImaModal.html">
+                <img src="images/galeria.png" alt="Galería de Imágenes con Modal">
+                <p>Galería de Imágenes con Modal</p>
+            </div>
+            <div class="gallery-item" data-project="Actividades/calculadora.html">
+                <img src="images/calculadora.png" alt="Calculadora Básica">
+                <p>Calculadora Básica</p>
+            </div>
+            <div class="gallery-item" data-project="Actividades/converUnidades.html">
+                <img src="images/convertidorUnidades.png" alt="Convertidor de Unidades">
+                <p>Convertidor de Unidades</p>
+            </div>
+            <div class="gallery-item" data-project="Actividades/contPalabras.html">
+                <img src="images/contadorCaracteres.png" alt="Contador de Palabras y Caracteres">
+                <p>Contador de Palabras y Caracteres</p>
+            </div>
+            <div class="gallery-item" data-project="Actividades/cronometro.html">
+                <img src="images/cronometro.png" alt="Cronómetro">
+                <p>Cronómetro</p>
+            </div>
+            <div class="gallery-item" data-project="Actividades/galeriaImagenes.html">
+                <img src="images/galeriaImagenes.png" alt="Galería de Imágenes">
+                <p>Galería de Imágenes</p>
+            </div>
+            <div class="gallery-item" data-project="Actividades/aplicacionNotas.html">
+                <img src="images/apNotas.png" alt="Aplicación de Notas">
+                <p>Aplicación de Notas</p>
+            </div>
+            <!-- Más imágenes de proyectos -->
+        </section>
+    </main>
+
+    <!-- Modal para cargar proyectos -->
+    <div id="modal" class="modal">
+        <div class="modal-content"><!--contiene los elementos que se mostraran dentro de la ventana modal -->
+            <span class="close">&times;</span><!--al hacer clic en este elemento se cerrará el modal -->
+            <!--Carga dinámicamente el contenido del proyecto seleccionado. 
+             El atributo 'src' se actualiza mediante JavaScript cuando se hace clic en un proyecto. 
+             El atributo 'frameborder="0"' asegura que no se muestre el borde alrededor del iframe. -->
+            <iframe id="project-frame" src="" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
