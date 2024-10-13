@@ -149,7 +149,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('https://i.imgur.com/U2H0OHZ.png') repeat;
+   /* background: url('https://i.imgur.com/U2H0OHZ.png') repeat;
     opacity: 0.2; /* Reduce la opacidad para un efecto más ligero */
     animation: fog 15s linear infinite; /* Reduce la duración de la animación */
     z-index: -1;
