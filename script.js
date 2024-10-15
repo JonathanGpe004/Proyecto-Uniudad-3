@@ -1,4 +1,4 @@
-/ Efecto de menú hamburguesa
+// Efecto de menú hamburguesa
 document.querySelector('.hamburger').addEventListener('click', () => {
     document.querySelector('.nav-links').classList.toggle('active');  // Cambié 'open' por 'active'
 });
@@ -28,4 +28,3 @@ document.querySelector('.close').addEventListener('click', () => {
     // Oculta el modal configurando su estilo 'display' a 'none', lo que lo hace invisible
     modal.style.display = 'none';
 });
-
